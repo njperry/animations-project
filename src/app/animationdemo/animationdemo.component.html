@@ -6,7 +6,8 @@
 <br />
 
 <h3>Balloon Effect</h3>
-<div (click)="changeState()" style="width:100px;height:100px; border-radius: 100%; margin: 3rem; background-color: green"
+<div (click)="changeState()"
+  style="width:100px;height:100px; border-radius: 100%; margin: 3rem; background-color: green"
   [@balloonEffect]=currentState>
 </div>
 
@@ -43,5 +44,39 @@
   <div class="card three">CPU Battle Card Three</div>
   <div [@PlayerCardMove]="playerCardInPlay ? 'inPlay' : 'onDeck'" class="card four">User Battle Card Four</div>
 </div>
+
+<button (click)="playPlayerCard()">Play Player Card</button>
+
+
+<div class="table">
+  <div class="column">
+    <div class="deck five">CPU Card One</div>
+    <div class="deck six">User Card Two</div>
+  </div>
+  <div class="row">
+    <div class="deck seven">CPU Battle Card Three</div>
+    <div [@PlayerCardMove]="playerCardInPlay ? 'inPlay' : 'onDeck'" class="deck eight">User Battle Card Four</div>
+  </div>
+</div>
+
+<button (click)="playPlayerCard()">Play Player Card</button>
+
+<main>
+  <div class="arena">
+    <div class="computer-deck">CPU Deck
+      <div class="computer-image"></div>
+    </div>
+    <div class="battle-area">
+      <div class="computer-card">CPU CARD</div>
+      <div class="user-card" [@PlayCard]="playerCardInPlay ? 'inPlay' : 'onDeck'">USER CARD</div>
+    </div>
+    <div class="user-deck">
+      <div class="deck-of-cards">Card 1</div>
+      <div class="deck-of-cards">Card 2</div>
+      <div class="deck-of-cards">Card 3</div>
+      <div class="deck-of-cards">Card 4</div>
+    </div>
+  </div>
+</main>
 
 <button (click)="playPlayerCard()">Play Player Card</button>

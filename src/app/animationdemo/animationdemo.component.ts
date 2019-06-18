@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-animationdemo',
@@ -52,16 +52,50 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       ])
     ]),
 
+    // trigger('myAnimationTrigger', [
+    //   transition('* => visible', [
+    //     // fade out the element immediately
+    //     style({ opacity: 0 }),
+
+    //     // now animate it in over one second
+    //     animate(1000, style({ opacity: 1 }))
+    //   ]),
+
+    //   transition('* => hidden', [
+    //     // use the existing opacity on the element
+    //     style({ opacity: '*' }),
+
+    //     // now animate it out over 500ms
+    //     animate('500ms', style({ opacity: 0 }))
+    //   ])
+    // ])
+
     trigger('PlayerCardMove', [
-      state('onDeck', style({ transform: 'translateX(50%)', webkitTransform: 'translateX(50%)', top: 'auto', left: 'auto', right: '45%', bottom: 0 })),
-      state('inPlay', style({ transform: '*', webkitTransform: '*', top: '*', left: '*', right: '*', bottom: '*' })),
-      transition('onDeck => inPlay', [
-        // style({ transform: 'translate(-100%, -400%)' }),
-        animate('0.5s ease-in')
+      state('onDeck', style({ top: 'auto', left: 'auto', right: '45%', bottom: 0, transform: 'translate(50%, 0%)' })),
+      // state('onDeck', style({ transform: 'translate(50%, 0)', right: '45%', bottom: 0, top: 'auto', left: 'left' })),
+      state('inPlay', style({ top: '*', left: '*', right: '*', bottom: '*', transform: '*' })),
+      transition('onDeck <=> inPlay', [
+        style({ color: 'blue' }),
+        // style({ top: '36%', left: '36%', right: '45%', bottom: 0, color: 'blue' }),
+        animate('1.5s 300ms ease-in-out'),
+        
+        // ]),
+        // transition(':leave', [
+        //   animate('0.5s ease-out', style({ transform: 'translate(100%, -400%)' }))
       ]),
-      // transition(':leave', [
-      //   animate('0.5s ease-out', style({ transform: 'translate(100%, -400%)' }))
+      // state('inPlay', style({ top: '*', left: '*', right: '*', bottom: '*', transform: '*' })),
+      // transition('inPlay => onDeck', [
+      //   style({ color: 'blue' }),
+      //   animate('3.5s 300ms ease-in-out')
       // ])
+    ]),
+
+    trigger('PlayCard', [
+      state('onDeck', style({transform: 'translate(-100%, 175%)'})),
+      state('inPlay', style({transform: '*'})),
+      transition('onDeck <=> inPlay', [
+        animate('1.5s 300ms ease-in-out')
+      ])
     ])
   ]
 })
@@ -86,6 +120,6 @@ export class AnimationdemoComponent {
   }
 
   playPlayerCard() {
-    this.playerCardInPlay = true;
+    this.playerCardInPlay = !this.playerCardInPlay;
   }
 }

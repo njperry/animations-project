@@ -1,12 +1,88 @@
-.battle, .card {
+.arena{
   border: 1px solid black;
   margin: 10px;
+  padding: 10px;
+  width: 95vw;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.battle-area {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.battle-area >* {
+  margin: 0 40px;
+}
+
+.computer-deck {
+  width: 50px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.computer-card {
+  width: 100px;
+  height: 200px;
+  border: 1px solid black;
+  margin-right: 200px;
+}
+
+.user-card {
+  width: 100px;
+  height: 200px;
+  border: 1px solid black;
+  margin-left: 200px;
+}
+
+.deck-of-cards {
+  width: 50px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.computer-image {
+  width:90%;
+  height: 50%;
+  border: 1px solid black;
+}
+
+.user-deck {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.user-deck >* {
+  margin: 0 10px;
+}
+
+  
+
+
+
+/* ----------------------------------------------------------- */
+.battle, .card {
+  border: 1px solid black;
   padding: 10px;
 }
 
 .battle {
-  width: 700px;
-  height: 1000px;
+  width: 100vw;
+  height: 800px;
+  margin: 10px;
   text-align: center;
   position: relative;
 }
@@ -15,7 +91,7 @@
   width: 100px;
   height: 200px;
   margin: 40px;
-  position:absolute;
+  position: absolute;
 }
 
 .one, .two {
@@ -29,14 +105,75 @@
 
 .three, .four {
   transform: translateY(50%);
-  -webkit-transform: translateY(50%);
   top: 25%;
 }
 
 .three {
+  transform: translate(0, 50%);
+  top: 25%;
   right: 5%;
 }
 
 .four {
+  transform: translate(0, 50%);
+  top: 25%;
   left: 5%;
+}
+
+
+
+.table, .deck {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.table {
+  width: 700px;
+  height: 1000px;
+  margin: 10px;
+  text-align: center;
+  /* position: relative; */
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.deck {
+  width: 100px;
+  height: 200px;
+  margin: 40px;
+  /* position: absolute; */
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.five, .six {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.seven, .eight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
